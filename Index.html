@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise - Organizational Alignment Infrastructure</title>
+    <meta name="description" content="Is your team quietly sabotaging your AI investments? See the drift before it costs you the project.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0e1a;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1f35 0%, #0a0e1a 100%);
+            padding: 20px 0;
+            border-bottom: 1px solid #2a3f5f;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #1a1f35 0%, #0a0e1a 100%);
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b9d 50%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 28px;
+            color: #9ca3af;
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(255, 140, 66, 0.4);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(255, 140, 66, 0.6);
+        }
+        
+        /* Section styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: #ff8c42;
+            text-align: center;
+        }
+        
+        .section-intro {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 64px;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1421 100%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #0f1421 0%, #0a0e1a 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #2a3f5f;
+            text-align: center;
+        }
+        
+        .stat-question {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff8c42;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        .stat-evidence {
+            font-size: 16px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
+        .stat-source {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        /* Solution Section */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .pillar-card {
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1421 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #2a3f5f;
+            text-align: center;
+        }
+        
+        .pillar-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+        
+        .pillar-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff8c42;
+            margin-bottom: 12px;
+        }
+        
+        .pillar-desc {
+            font-size: 16px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+        
+        .pillar-impact {
+            font-size: 20px;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1421 100%);
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .process-card {
+            background: linear-gradient(135deg, #0f1421 0%, #0a0e1a 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #2a3f5f;
+            text-align: center;
+        }
+        
+        .process-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ff8c42;
+            margin-bottom: 16px;
+        }
+        
+        .process-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin-bottom: 12px;
+        }
+        
+        .process-desc {
+            font-size: 16px;
+            color: #9ca3af;
+        }
+        
+        /* Use Case */
+        .use-case {
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(196, 69, 105, 0.1) 100%);
+            border: 2px solid #ff8c42;
+            padding: 48px;
+            border-radius: 16px;
+            margin: 48px auto;
+            max-width: 900px;
+        }
+        
+        .use-case h3 {
+            font-size: 32px;
+            color: #ff8c42;
+            margin-bottom: 16px;
+        }
+        
+        .use-case p {
+            font-size: 20px;
+            color: #e5e7eb;
+            line-height: 1.8;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+        
+        .team-member {
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1421 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #2a3f5f;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e5e7eb;
+            margin-bottom: 8px;
+        }
+        
+        .team-role {
+            font-size: 20px;
+            color: #ff8c42;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .team-bio {
+            font-size: 16px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        
+        /* Validation Section */
+        .validation {
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1421 100%);
+        }
+        
+        .validation-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .validation-badge {
+            font-size: 24px;
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .validation-desc {
+            font-size: 18px;
+            color: #d1d5db;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #1a1f35 0%, #0a0e1a 100%);
+        }
+        
+        .cta-section h2 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: #e5e7eb;
+        }
+        
+        .cta-section p {
+            font-size: 24px;
+            color: #9ca3af;
+            margin-bottom: 48px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+            color: white;
+            padding: 24px 56px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(255, 140, 66, 0.5);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(255, 140, 66, 0.7);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0e1a;
+            padding: 40px 0;
+            border-top: 1px solid #2a3f5f;
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; }
+            .hero-subtitle { font-size: 20px; }
+            .stats-grid,
+            .pillars-grid,
+            .process-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title { font-size: 36px; }
+            .stat-question { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🌅 Sunrise</div>
+                <a href="#contact" class="nav-cta">Schedule Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Is Your Team Quietly Sabotaging<br>Your AI Investments?</h1>
+            <p class="hero-subtitle">See the drift before it costs you the project</p>
+            <a href="#contact" class="hero-cta">See What You're Missing</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">The Pattern Most CTOs Don't See Coming</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-question">Is your team overriding 60-70% of AI recommendations?</div>
+                    <div class="stat-evidence">Research shows most teams do—even when they smile and nod in meetings.</div>
+                    <div class="stat-source">Source: BCG Global AI Survey 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-question">Will your analytics dashboard be abandoned in 6 months?</div>
+                    <div class="stat-evidence">70% are. The question is whether you'll see it coming.</div>
+                    <div class="stat-source">Source: Gartner BI Platform Report 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-question">Could organizational drift cost your enterprise $550K daily?</div>
+                    <div class="stat-evidence">Most CTOs can't see it until the damage is done.</div>
+                    <div class="stat-source">Source: Calculated from project overrun research (BCG, McKinsey)</div>
+                </div>
+            </div>
+            <p class="section-intro">The failure isn't your technology. It's the missing infrastructure that keeps organizations aligned while technology accelerates them apart.</p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">What If Alignment Ran Like Security?</h2>
+            <p class="section-intro">Stop hoping teams stay aligned. Start managing it as rigorously as you manage your firewall.</p>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🤝</div>
+                    <div class="pillar-name">Trust</div>
+                    <div class="pillar-desc">Detect when teams stop believing your tools</div>
+                    <div class="pillar-impact">45% higher tech ROI</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🎵</div>
+                    <div class="pillar-name">Coherence</div>
+                    <div class="pillar-desc">Catch drift before it becomes disaster</div>
+                    <div class="pillar-impact">40% faster delivery</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚡</div>
+                    <div class="pillar-name">Consequence</div>
+                    <div class="pillar-desc">Connect work to outcomes, systematically</div>
+                    <div class="pillar-impact">35% better retention</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">See What You're Missing. Then Act On It.</h2>
+            <p class="section-intro">The difference? You're no longer reacting to fires. You're preventing them.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <div class="process-title">See the Signals</div>
+                    <div class="process-desc">Detect trust erosion while your dashboards still show green</div>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <div class="process-title">Understand the Why</div>
+                    <div class="process-desc">Know which teams are drifting and what's causing it</div>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <div class="process-title">Act with Precision</div>
+                    <div class="process-desc">Get structured protocols to fix drift before it kills the project</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case -->
+    <section class="solution">
+        <div class="container">
+            <div class="use-case">
+                <h3>Does This Sound Familiar?</h3>
+                <p>Is your team overriding 60-70% of AI recommendations? Traditional monitoring shows "green status." But Sunrise detects the trust erosion 2-4 weeks before it becomes a crisis. You see exactly why teams aren't adopting. Then you get structured protocols to fix it. The difference? You act on drift before it costs you the project.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Built by People Who've Seen This Movie</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-name">Susie Stockholm</div>
+                    <div class="team-role">Executive Search Consultant</div>
+                    <div class="team-bio">40+ years placing executives who either thrive or crater based on organizational alignment. She's seen every failure mode.</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-name">Todd Rollin</div>
+                    <div class="team-role">Decision Intelligence & AI Integration</div>
+                    <div class="team-bio">20+ years bringing decision intelligence (DI) solutions to market, with a current focus on integrating AI/LLM technology into DI systems.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation -->
+    <section class="validation">
+        <div class="container">
+            <div class="validation-content">
+                <div class="validation-badge">Designing with Fortune 500 Enterprises</div>
+                <p class="validation-desc">Target: 85%+ pilot-to-customer conversion | 60-120 day payback | Projected ROI: 15-60x based on industry benchmarks</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>See Your Drift. Get Your Numbers.</h2>
+            <p>30-minute demo using your actual stack</p>
+            <a href="mailto:toddrollin@mac.com?subject=Demo Request - Sunrise" class="cta-button">Schedule Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 Sunrise. Organizational Alignment Infrastructure.</p>
+        </div>
+    </footer>
+</body>
+</html>
